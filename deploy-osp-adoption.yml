@@ -93,6 +93,9 @@
           cifmw_adoption_osp_deploy_ntp_server: "{{ cifmw_adoption_osp_deploy_ntp_server }}"
           cifmw_adoption_source_scenario_path: "{{ cifmw_adoption_source_scenario_path }}"
           cifmw_adoption_osp_deploy_scenario: "{{ cifmw_adoption_osp_deploy_scenario }}"
+          # Expose registry settings to the hooks as well
+          cifmw_registry_token_registry_url: "{{ cifmw_registry_token_registry_url | default('') }}"
+          cifmw_registry_token: "{{ cifmw_registry_token | default({}) }}"
           _vm_groups: "{{ _vm_groups }}"
       ansible.builtin.copy:
         dest: "{{ cifmw_basedir }}/artifacts/parameters/adoption_osp.yml"
